@@ -1,3 +1,7 @@
+/* legenda
+    as variáveis que possuem "H" no nome são referentes a navbar ou o "header" da página
+*/
+
 /* Setando valores de URL e Página(p) para futuro uso */
 var url = 'http://www.omdbapi.com/?i=tt3896198&apikey=1e6a7982' 
 var p = 1
