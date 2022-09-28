@@ -130,7 +130,9 @@ function pesquisarH() {
                 /* resetando o footer para criar apenas o avançar */
                 footer.innerHTML = ``
                 const data = JSON.parse(request.response).Search
+                console.log (data)
                 data.map((movie) => {
+
                     console.log('Filme individual', movie)
                 })
                 for (let c = 0; c < 10; c++) {
@@ -168,12 +170,13 @@ function proxpag() {
         if (request.status === 200) {
             const data = JSON.parse(request.response).Search
             if (data == undefined) {
-                footer.removeChild(b)
+                b.style.display = "none"
+                bv.style.display = "none"
                 for (let c = 0; c < 10; c++) {
                     let resn = document.getElementById(`res${c}`)
                     let descn = document.getElementById(`desc${c}`)
                     resn.style.display = "none"
-                    descn.style.display = 'none'
+                    descn.style.display = "none"
                 }
                 center.style.display = 'flex'
                 primeira_tela.innerHTML = "<h1>Desculpe não achamos mais resultados para a página indicada</h1>"
@@ -186,6 +189,13 @@ function proxpag() {
                 if (request.status === 200) {
                     /* resetando o footer para criar apenas o avançar */
                     footer.innerHTML = ``
+                    footer.style.display = "flex"
+                    footer.appendChild(bv)
+                    footer.appendChild(b)
+                    center.style.display = "none"
+                    navbar.style.display = "flex"
+                    content.style.display = "flex"
+                    textonfH.value = ''
                     for (let c = 0; c < 10; c++) {
                         var filme = data[c]
                         let resn = document.getElementById(`res${c}`)
@@ -200,13 +210,6 @@ function proxpag() {
                     console.log(request)
                     console.log(`ERROR ${request.status}`)
                 }
-                center.style.display = "none"
-                navbar.style.display = "flex"
-                footer.style.display = "flex"
-                footer.appendChild(bv)
-                footer.appendChild(b)
-                content.style.display = "flex"
-                textonfH.value = ''
             }
         }
     }
@@ -225,6 +228,7 @@ function antpag () {
             const data = JSON.parse(request.response).Search
             if (data == undefined) {
                 b.style.display = "none"
+                bv.style.display = "none"
                 for (let c = 0; c < 10; c++) {
                     let resn = document.getElementById(`res${c}`)
                     let descn = document.getElementById(`desc${c}`)
@@ -239,6 +243,17 @@ function antpag () {
                 if (request.status === 200) {
                     /* resetando o footer para criar apenas o avançar */
                     footer.innerHTML = ``
+                    center.style.display = "none"
+                    navbar.style.display = "flex"
+                    footer.style.display = "flex"
+                    footer.appendChild(bv)
+                    footer.appendChild(b)
+                    content.style.display = "flex"
+                    textonfH.value = ''
+                    b.style.display= "flex"
+                    if (p == 1) {
+                        bv.style.display = "none"
+                    }
                     for (let c = 0; c < 10; c++) {
                         var filme = data[c]
                         let resn = document.getElementById(`res${c}`)
@@ -252,17 +267,6 @@ function antpag () {
                 } else {
                     console.log(request)
                     console.log(`ERROR ${request.status}`)
-                }
-                center.style.display = "none"
-                navbar.style.display = "flex"
-                footer.style.display = "flex"
-                footer.appendChild(bv)
-                footer.appendChild(b)
-                content.style.display = "flex"
-                textonfH.value = ''
-                b.style.display= "flex"
-                if (p == 1) {
-                    footer.removeChild(bv)
                 }
             }
         }
