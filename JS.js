@@ -82,7 +82,10 @@ function pesquisar() {
                     var filme = JSON.parse(request.response).Search[c] 
                     let resn = document.getElementById(`res${c}`)
                     let descn = document.getElementById(`desc${c}`)
-                    resn.innerHTML += `<img src="${filme.Poster}" alt="Capa">`
+                    resn.innerHTML += `<picture>
+                    <img src="${filme.Poster}" alt="Capa">
+                    <img src="" alt"capa"
+                    </picture`
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
@@ -180,8 +183,9 @@ function proxpag() {
                 }
                 center.style.display = 'flex'
                 primeira_tela.innerHTML = "<h1>Desculpe não achamos mais resultados para a página indicada</h1>"
+                setInterval (countdown, 1000)
+                primeira_tela.innerHTML += `<h2>Retornando a página inicial em ${contador}</h2>`
                 footer.style.display = "flex"
-                footer.appendChild(bv)
                 content.style.display = "none"
             } else {
                 window.scrollTo(0,0)
@@ -204,7 +208,7 @@ function proxpag() {
                         resn.innerHTML += `<img src="${filme.Poster}" alt="Capa">`
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
-                        descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
+                        descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>` 
                     }
                 } else {
                     console.log(request)
@@ -270,5 +274,15 @@ function antpag () {
                 }
             }
         }
+    }
+}
+
+var contador = 10
+function countdown() {
+    if (contador == 0) {
+        location.reload()
+    } else {
+        console.log(contador)
+        contador--
     }
 }
