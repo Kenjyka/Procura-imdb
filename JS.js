@@ -182,9 +182,7 @@ function proxpag() {
                     descn.style.display = "none"
                 }
                 center.style.display = 'flex'
-                primeira_tela.innerHTML = "<h1>Desculpe não achamos mais resultados para a página indicada</h1>"
                 setInterval (countdown, 1000)
-                primeira_tela.innerHTML += `<h2>Retornando a página inicial em ${contador}</h2>`
                 footer.style.display = "flex"
                 content.style.display = "none"
             } else {
@@ -283,6 +281,8 @@ function countdown() {
         location.reload()
     } else {
         console.log(contador)
+        primeira_tela.innerHTML = "<h1>Desculpe não achamos mais resultados para a página indicada</h1>"
+        primeira_tela.innerHTML += `<h2>Retornando a página inicial em ${contador}</h2>`
         contador--
     }
 }
