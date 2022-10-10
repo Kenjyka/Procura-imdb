@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procura Filmes</title>
+    <!--Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!--Icons do Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!--JS do Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!--CSS Do Projeto-->
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="shortcut icon" href="images/imdb_128_black.ico" type="image/x-icon">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top py-3" id="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand bright" href="">Procura do IMDB</a> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+              <input class="form-control me-2" placeholder="Spider-man..." id="procura-textoH">
+              <button class="btn btn-outline-light" type="button" id="pesquisa" onclick="pesquisarH()"><i class="bi bi-search dark"></i></button>
+          </div>
+        </div>
+  </nav>
+  <div id="center">
+    <div class=" h-100 d-flex justify-content-center align-items-center">
+      <div class="d-flex justify-content-center" id="primeira-tela">
+        <h1>Procura do IMDB</h1>
+            <div class="d-flex align-self-center" id="procura-box">
+              <input class="form-control me-2" type="search" placeholder="Spider-man..." aria-label="Search" id="procura-texto">
+              <button class="btn btn-dark" type="button" id="procura" onclick="pesquisar()"><i class="bi bi-search"></i></button>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="imagens">
+    <div class="col-12" id="featured-images">
+      <div class="row g-3 d-flex justify-content-center">
+        <div class="col-12 col-md-4">
+          <div id="res0">
+            <!-- Aqui vai ficar a imagem -->
+          </div>
+          <div class="banner-content" id="desc0">
+            <!-- Aqui o Texto -->
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res1">
+          </div>
+          <div class="banner-content" id="desc1">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res2">
+          </div>
+          <div class="banner-content" id="desc2">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res3">
+          </div>
+          <div class="banner-content" id="desc3">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res4">
+          </div>
+          <div class="banner-content" id="desc4">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res5">
+          </div>
+          <div class="banner-content" id="desc5">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res6">
+          </div>
+          <div class="banner-content" id="desc6">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res7">
+          </div>
+          <div class="banner-content" id="desc7">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res8">
+          </div>
+          <div class="banner-content" id="desc8">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div id="res9">
+          </div>
+          <div class="banner-content" id="desc9">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer" class="d-flex justify-content-center py-3">
+  </footer>
+  <script src="JS.js"></script>
+</body>
+</html>

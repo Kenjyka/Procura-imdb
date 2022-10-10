@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Reem Kufi Fun', sans-serif;
+    text-align: center;
+}
+
+/* Página inicial */
+#navbar {
+    display: none;
+    background-color: rgba(44, 44, 44, 0.65);
+}
+#center {
+    background-color: rgb(60, 8, 8);
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+#procura-box {
+    width: 500px;
+}
+#primeira-tela {
+    display: flex;
+    flex-direction: column;
+}
+nav {
+    background-image: linear-gradient(360deg, rgba(10, 10, 10, 0.779), transparent);
+}
+form i {
+    color: rgb(255, 255, 255);
+}
+.form-control:focus{
+    border-color: rgb(255, 255, 255);
+    box-shadow: none;
+}
+html, body {
+    height: 90%;
+    width: 100%;
+}
+body {
+    background-color: #3C0808;
+}
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 5em;
+}
+h2 {
+    color: rgb(197, 197, 197);
+    font-size: 3em;
+}
+input[type="search"]::-webkit-search-cancel-button { 
+    display: none;
+}
+
+#featured-images .col-md-4 {
+    position: relative;
+    cursor: pointer;
+}
+#featured-images .col-md-4:hover > .banner-content {
+    opacity: .8;
+}
+#featured-images .banner-content {
+    margin-left: .5em;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20em;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    transition: .5s;
+    opacity: 0;
+    color: white;
+}
+#footer {
+    display: none;
+}
+#imagens {
+    display: none;
+    margin-top: 8em;
+}
+#imagens img {
+    width: 100%;
+    height: 100%;
+}
+#res0, #res1, #res2, #res3, #res4, #res5, #res6, #res7, #res8, #res9 {
+    width: 20em;
+    height: 500px;
+}
+
+.bright {
+    color: white;
+}
+.btn:hover .dark{
+    color: rgb(0, 0, 0);
+}
+.navbar-brand:focus, .navbar-brand:hover {
+    color: red;
+}
+
+.banner-content p {
+    margin-top: 1em;
+    color: rgba(255, 255, 255, 0.649);
+}
+#procura-textoH {
+    width: 18em;
+}
+
+#Next {
+    margin: 2em;
+}
+#Prev {
+    margin: 2em;
+}
