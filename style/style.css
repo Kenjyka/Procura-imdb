@@ -56,7 +56,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
 #featured-images .col-md-4 {
     position: relative;
-    cursor: pointer;
 }
 #featured-images .col-md-4:hover > .banner-content {
     opacity: .8;
@@ -117,4 +116,11 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 #Prev {
     margin: 2em;
+}
+#navbarSupportedContent {
+    width: 500  px;
+}
+.bi-star {
+    font-size: 3em;
+    cursor: pointer;
 }

@@ -14,6 +14,7 @@ var content = document.getElementById('imagens')
 var navbar = document.getElementById('navbar')
 var textonfH = document.getElementById('procura-textoH')
 var primeira_tela = document.getElementById('primeira-tela')
+var favoritos = document.getElementsByClassName('bi-star')
 
 /* Botões de avançar e voltar */
 var b = document.createElement('button')
@@ -33,7 +34,7 @@ bv.addEventListener('click', (n)=>{
     antpag()
 })
 
-/* Fazendo o Enter iniciar as funções */
+/* Event listeners */
 textonf.addEventListener ('keydown', (evento)=> {
     if (evento.key == "Enter") {
         evento.stopPropagation
@@ -46,7 +47,10 @@ textonfH.addEventListener ('keydown', (evento)=> {
         pesquisarH()
     }
 })
-
+console.log (favoritos)
+if (favoritos.length != 0) {
+    favoritos.addEventListener ('click', console.log('teste favoritos'))
+}
 
 /* Função de pesquisa */
 function pesquisar() {
@@ -86,6 +90,9 @@ function pesquisar() {
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
+                    descn.innerHTML += `<i class="bi bi-star"></i>`
+                    localStorage.setItem(`${filme.Title}`, filme.Year)
+                    localStorage.setItem(`${filme.Title}poster`, filme.Poster) 
                 }
             } else {
                 console.log(request)
