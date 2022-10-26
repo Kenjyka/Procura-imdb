@@ -15,6 +15,9 @@ var navbar = document.getElementById('navbar')
 var textonfH = document.getElementById('procura-textoH')
 var primeira_tela = document.getElementById('primeira-tela')
 var favoritos = document.getElementsByClassName('bi-star')
+var target = document.getElementById('desc0')
+var FavoritoC = 0
+var IdFilme = 0
 
 /* Botões de avançar e voltar */
 var b = document.createElement('button')
@@ -47,10 +50,6 @@ textonfH.addEventListener ('keydown', (evento)=> {
         pesquisarH()
     }
 })
-console.log (favoritos)
-if (favoritos.length != 0) {
-    favoritos.addEventListener ('click', console.log('teste favoritos'))
-}
 
 /* Função de pesquisa */
 function pesquisar() {
@@ -86,13 +85,11 @@ function pesquisar() {
                     var filme = JSON.parse(request.response).Search[c] 
                     let resn = document.getElementById(`res${c}`)
                     let descn = document.getElementById(`desc${c}`)
-                    resn.innerHTML += `<img src="${filme.Poster}" alt="Capa">`
+                    resn.innerHTML += `<img src="${filme.Poster}" id = "poster${c}" alt="Capa">`
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                    descn.innerHTML += `<i class="bi bi-star"></i>`
-                    localStorage.setItem(`${filme.Title}`, filme.Year)
-                    localStorage.setItem(`${filme.Title}poster`, filme.Poster) 
+                    descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
                 }
             } else {
                 console.log(request)
@@ -103,6 +100,87 @@ function pesquisar() {
             footer.style.display = "flex"
             footer.appendChild(b)
             content.style.display = "flex"
+
+            document.getElementById('star0').addEventListener("click", () => {
+                let star = document.getElementById('star0')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 0
+                favoritar()
+            })
+            document.getElementById('star1').addEventListener("click", () => {
+                let star = document.getElementById('star1')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 1
+                favoritar()
+            })
+            document.getElementById('star2').addEventListener("click", () => {
+                let star = document.getElementById('star2')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 2
+                favoritar()
+            })
+            document.getElementById('star3').addEventListener("click", () => {
+                let star = document.getElementById('star3')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 3
+                favoritar()
+            })
+            document.getElementById('star4').addEventListener("click", () => {
+                let star = document.getElementById('star4')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 4
+                favoritar()
+            })
+            document.getElementById('star5').addEventListener("click", () => {
+                let star = document.getElementById('star5')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 5
+                favoritar()
+            })
+            document.getElementById('star6').addEventListener("click", () => {
+                let star = document.getElementById('star6')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 6
+                favoritar()
+            })
+            document.getElementById('star7').addEventListener("click", () => {
+                let star = document.getElementById('star7')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 7
+                favoritar()
+            })
+            document.getElementById('star8').addEventListener("click", () => {
+                let star = document.getElementById('star8')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 8
+                favoritar()
+            })
+            document.getElementById('star9').addEventListener("click", () => {
+                let star = document.getElementById('star9')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 9
+                favoritar()
+            })
         }  
     } 
 }
@@ -145,10 +223,11 @@ function pesquisarH() {
                     let resn = document.getElementById(`res${c}`)
                     let descn = document.getElementById(`desc${c}`)
                     resn.innerHTML = ""
-                    resn.innerHTML += `<img src="${filme.Poster}" alt="Capa">`
+                    resn.innerHTML += `<img src="${filme.Poster}" id = "poster${c}"alt="Capa">`
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
+                    descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
                 }
             } else {
                 console.log(request)
@@ -160,6 +239,87 @@ function pesquisarH() {
             footer.appendChild(b)
             content.style.display = "flex"
             textonfH.value = ''
+
+            document.getElementById('star0').addEventListener("click", () => {
+                let star = document.getElementById('star0')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 0
+                favoritar()
+            })
+            document.getElementById('star1').addEventListener("click", () => {
+                let star = document.getElementById('star1')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 1
+                favoritar()
+            })
+            document.getElementById('star2').addEventListener("click", () => {
+                let star = document.getElementById('star2')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 2
+                favoritar()
+            })
+            document.getElementById('star3').addEventListener("click", () => {
+                let star = document.getElementById('star3')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 3
+                favoritar()
+            })
+            document.getElementById('star4').addEventListener("click", () => {
+                let star = document.getElementById('star4')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 4
+                favoritar()
+            })
+            document.getElementById('star5').addEventListener("click", () => {
+                let star = document.getElementById('star5')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 5
+                favoritar()
+            })
+            document.getElementById('star6').addEventListener("click", () => {
+                let star = document.getElementById('star6')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 6
+                favoritar()
+            })
+            document.getElementById('star7').addEventListener("click", () => {
+                let star = document.getElementById('star7')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 7
+                favoritar()
+            })
+            document.getElementById('star8').addEventListener("click", () => {
+                let star = document.getElementById('star8')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 8
+                favoritar()
+            })
+            document.getElementById('star9').addEventListener("click", () => {
+                let star = document.getElementById('star9')
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                IdFilme = 9
+                favoritar()
+            })
         }
     }
 }
@@ -206,15 +366,96 @@ function proxpag() {
                         let resn = document.getElementById(`res${c}`)
                         let descn = document.getElementById(`desc${c}`)
                         resn.innerHTML = ""
-                        resn.innerHTML += `<img src="${filme.Poster}" alt="Capa">`
+                        resn.innerHTML += `<img src="${filme.Poster}" id = "poster${c}" alt="Capa">`
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>` 
+                        descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
                     }
                 } else {
                     console.log(request)
                     console.log(`ERROR ${request.status}`)
                 }
+                document.getElementById('star0').addEventListener("click", () => {
+                    let star = document.getElementById('star0')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 0
+                    favoritar()
+                })
+                document.getElementById('star1').addEventListener("click", () => {
+                    let star = document.getElementById('star1')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 1
+                    favoritar()
+                })
+                document.getElementById('star2').addEventListener("click", () => {
+                    let star = document.getElementById('star2')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 2
+                    favoritar()
+                })
+                document.getElementById('star3').addEventListener("click", () => {
+                    let star = document.getElementById('star3')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 3
+                    favoritar()
+                })
+                document.getElementById('star4').addEventListener("click", () => {
+                    let star = document.getElementById('star4')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 4
+                    favoritar()
+                })
+                document.getElementById('star5').addEventListener("click", () => {
+                    let star = document.getElementById('star5')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 5
+                    favoritar()
+                })
+                document.getElementById('star6').addEventListener("click", () => {
+                    let star = document.getElementById('star6')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 6
+                    favoritar()
+                })
+                document.getElementById('star7').addEventListener("click", () => {
+                    let star = document.getElementById('star7')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 7
+                    favoritar()
+                })
+                document.getElementById('star8').addEventListener("click", () => {
+                    let star = document.getElementById('star8')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 8
+                    favoritar()
+                })
+                document.getElementById('star9').addEventListener("click", () => {
+                    let star = document.getElementById('star9')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 9
+                    favoritar()
+                })
             }
         }
     }
@@ -264,15 +505,96 @@ function antpag () {
                         let resn = document.getElementById(`res${c}`)
                         let descn = document.getElementById(`desc${c}`)
                         resn.innerHTML = ""
-                        resn.innerHTML += `<img src="${filme.Poster}" alt="Capa">`
+                        resn.innerHTML += `<img src="${filme.Poster}" id = "poster${c}" alt="Capa">`
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
+                        descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
                     }
                 } else {
                     console.log(request)
                     console.log(`ERROR ${request.status}`)
                 }
+                document.getElementById('star0').addEventListener("click", () => {
+                    let star = document.getElementById('star0')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 0
+                    favoritar()
+                })
+                document.getElementById('star1').addEventListener("click", () => {
+                    let star = document.getElementById('star1')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 1
+                    favoritar()
+                })
+                document.getElementById('star2').addEventListener("click", () => {
+                    let star = document.getElementById('star2')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 2
+                    favoritar()
+                })
+                document.getElementById('star3').addEventListener("click", () => {
+                    let star = document.getElementById('star3')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 3
+                    favoritar()
+                })
+                document.getElementById('star4').addEventListener("click", () => {
+                    let star = document.getElementById('star4')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 4
+                    favoritar()
+                })
+                document.getElementById('star5').addEventListener("click", () => {
+                    let star = document.getElementById('star5')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 5
+                    favoritar()
+                })
+                document.getElementById('star6').addEventListener("click", () => {
+                    let star = document.getElementById('star6')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 6
+                    favoritar()
+                })
+                document.getElementById('star7').addEventListener("click", () => {
+                    let star = document.getElementById('star7')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 7
+                    favoritar()
+                })
+                document.getElementById('star8').addEventListener("click", () => {
+                    let star = document.getElementById('star8')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 8
+                    favoritar()
+                })
+                document.getElementById('star9').addEventListener("click", () => {
+                    let star = document.getElementById('star9')
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    IdFilme = 9
+                    favoritar()
+                })
             }
         }
     }
@@ -288,4 +610,15 @@ function countdown() {
         primeira_tela.innerHTML += `<h2>Retornando a página inicial em ${contador}</h2>`
         contador--
     }
+}
+
+function favoritar() {   
+    FavoritoC = localStorage.length / 3  
+    let posterLocal = document.getElementById(`poster${IdFilme}`).getAttribute('src')
+    let tituloLocal = document.getElementById(`desc${IdFilme}`).getElementsByTagName('h3')[0].innerText
+    let anoLocal = document.getElementById(`desc${IdFilme}`).getElementsByTagName('p')[0].innerText
+    console.log(tituloLocal)
+    localStorage.setItem(`${FavoritoC}Poster`, posterLocal)
+    localStorage.setItem(`${FavoritoC}Title`, tituloLocal)
+    localStorage.setItem(`${FavoritoC}Ano`, anoLocal)
 }
