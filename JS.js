@@ -89,7 +89,12 @@ function pesquisar() {
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                    descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                    if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                        descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
+                    } else {
+                        descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                    }
+                    
                 }
             } else {
                 console.log(request)
@@ -227,7 +232,11 @@ function pesquisarH() {
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                    descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                    if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                        descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
+                    } else {
+                        descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                    }
                 }
             } else {
                 console.log(request)
@@ -370,7 +379,11 @@ function proxpag() {
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>` 
-                        descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                        if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                            descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
+                        } else {
+                            descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                        }
                     }
                 } else {
                     console.log(request)
@@ -509,7 +522,11 @@ function antpag () {
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                        descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                        if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                            descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
+                        } else {
+                            descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
+                        }
                     }
                 } else {
                     console.log(request)
@@ -613,7 +630,7 @@ function countdown() {
 }
 
 function favoritar() {   
-    FavoritoC = localStorage.length / 3  
+    FavoritoC = localStorage.length / 4  
     let posterLocal = document.getElementById(`poster${IdFilme}`).getAttribute('src')
     let tituloLocal = document.getElementById(`desc${IdFilme}`).getElementsByTagName('h3')[0].innerText
     let anoLocal = document.getElementById(`desc${IdFilme}`).getElementsByTagName('p')[0].innerText
@@ -621,4 +638,35 @@ function favoritar() {
     localStorage.setItem(`${FavoritoC}Poster`, posterLocal)
     localStorage.setItem(`${FavoritoC}Title`, tituloLocal)
     localStorage.setItem(`${FavoritoC}Ano`, anoLocal)
+    localStorage.setItem(`${posterLocal}`, tituloLocal)
+}
+
+function pagfavoritos() {
+    if (localStorage.length / 4 < 10 ) {
+        let i = localStorage.length / 4
+        for (let c = 0; c < 10 ; c++) {
+            let descn = document.getElementById(`desc${c}`)
+            let resn = document.getElementById(`res${c}`)
+            descn.innerHTML = ""
+            resn.innerHTML = ""
+            resn.style.display = "none"
+        }
+        for (let c = 0 ; c < i; c++) {
+            let filmePoster = localStorage.getItem(`${c}Poster`)
+            let filmeTitle = localStorage.getItem(`${c}Title`)
+            let filmeAno = localStorage.getItem(`${c}Ano`)
+            let resn = document.getElementById(`res${c}`)
+            let descn = document.getElementById(`desc${c}`)
+            resn.innerHTML += `<img src="${filmePoster}" id = "poster${c}" alt="Capa">`
+            descn.innerHTML = `<h3>${filmeTitle}</h3>`
+            descn.innerHTML += `<p>Lançado no ano de ${filmeAno}</p>`
+            descn.innerHTML += `<i class="bi bi-star-fill" id="star${c}"></i>`
+            resn.style.display = "flex"
+        }
+        center.style.display = "none"
+            navbar.style.display = "flex"
+            footer.style.display = "flex"
+            footer.appendChild(b)
+            content.style.display = "flex"
+    }
 }
