@@ -138,13 +138,16 @@ function pesquisar() {
 
             document.getElementById('star0').addEventListener("click", () => {
                 let star = document.getElementById('star0')
+                IdFilme = 0
                 if (star.getAttribute('class') == "bi bi-star-fill") {
-                    window.alert ('deletor')
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
                 } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 0
                     favoritar()
                 }
                 
@@ -704,6 +707,7 @@ function favoritar() {
     localStorage.setItem(`${FavoritoC}Title`, tituloLocal)
     localStorage.setItem(`${FavoritoC}Ano`, anoLocal)
     localStorage.setItem(`${posterLocal}`, tituloLocal)
+    localStorage.setItem
 }
 
 var pagCFav = 0
@@ -742,12 +746,14 @@ function pagfavoritos() {
         if (localStorage.length / 4 > 9) {
             footer.appendChild(bF)
         }
-        
+        if (document.getElementById('Prev') != null) {
+            footer.removeChild(bv)
+        }
+        if (document.getElementById('Next') != null) {
+            footer.removeChild(b)
+        }
         if (pagCFav > 1) {
             footer.appendChild(bvF)
-            if (document.getElementById('Prev') != null) {
-                footer.removeChild(bv)
-            }
             if (localStorage.length / 4 < 9 + pagCFav) {
                 footer.removeChild(bF)   
             }
@@ -771,4 +777,8 @@ function proxPagFav() {
 function antPagFav () {
     pagCFav -= 10
     pagfavoritos()
+}
+
+function desfavoritar () {
+
 }
