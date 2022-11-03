@@ -417,6 +417,7 @@ function proxpag() {
                 navbar.style.display = "flex"
                 content.style.display = "flex"
                 textonfH.value = ''
+                bv.style.display = "flex"
                 for (let c = 0; c < 10; c++) {
                     var filme = data[c]
                     let resn = document.getElementById(`res${c}`)
@@ -566,6 +567,9 @@ function antpag () {
                     b.style.display= "flex"
                     if (p == 1) {
                         bv.style.display = "none"
+                        footer.appendChild(b)
+                    } else {
+                        bv.style.display = "flex"
                     }
                     for (let c = 0; c < 10; c++) {
                         var filme = data[c]
