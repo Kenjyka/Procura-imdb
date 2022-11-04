@@ -18,6 +18,7 @@ var favoritos = document.getElementsByClassName('bi-star')
 var target = document.getElementById('desc0')
 var FavoritoC = 0
 var IdFilme = 0
+var FilmeData = undefined
 
 /* Botões de avançar e voltar */
 var b = document.createElement('button')
@@ -107,16 +108,17 @@ function pesquisar() {
                         descn.style.display = "none"
                     } else {
                         let filme = JSON.parse(request.response).Search[c] 
-                        resn.innerHTML += `<img src="${filme.Poster}" id = "poster${c}" alt="Capa">`
+                        resn.innerHTML = `<img src="${filme.Poster}" id = "poster${c}" alt="Capa">`
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                        if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                        if (localStorage.getItem(`${filme.imdbID}`) != null | undefined) {
                             descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
                         } else {
                             descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
                         }
                         resn.style.display = "flex"
+                        descn.style.display = "flex"
                     }
                 }
             } else {
@@ -138,88 +140,155 @@ function pesquisar() {
 
             document.getElementById('star0').addEventListener("click", () => {
                 let star = document.getElementById('star0')
+                FilmeData = JSON.parse(request.response).Search[0]
+                IdFilme = 0
                 if (star.getAttribute('class') == "bi bi-star-fill") {
-                    window.alert ('deletor')
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
                 } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 0
                     favoritar()
                 }
                 
             })
             document.getElementById('star1').addEventListener("click", () => {
                 let star = document.getElementById('star1')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 1
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[1]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star2').addEventListener("click", () => {
                 let star = document.getElementById('star2')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 2
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[2]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star3').addEventListener("click", () => {
                 let star = document.getElementById('star3')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 3
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[3]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star4').addEventListener("click", () => {
                 let star = document.getElementById('star4')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 4
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[4]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star5').addEventListener("click", () => {
                 let star = document.getElementById('star5')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 5
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[5]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star6').addEventListener("click", () => {
                 let star = document.getElementById('star6')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 6
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[6]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star7').addEventListener("click", () => {
                 let star = document.getElementById('star7')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 7
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[7]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star8').addEventListener("click", () => {
                 let star = document.getElementById('star8')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 8
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[8]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star9').addEventListener("click", () => {
                 let star = document.getElementById('star9')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 9
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[9]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
         }  
     } 
@@ -272,12 +341,13 @@ function pesquisarH() {
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                        if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                        if (localStorage.getItem(`${filme.Poster}`) != null | undefined) {
                             descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
                         } else {
                             descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
                         }
                         resn.style.display = "flex" 
+                        descn.style.display = "flex"
                     }
                 }
             } else {
@@ -299,83 +369,155 @@ function pesquisarH() {
 
             document.getElementById('star0').addEventListener("click", () => {
                 let star = document.getElementById('star0')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
+                FilmeData = JSON.parse(request.response).Search[0]
                 IdFilme = 0
-                favoritar()
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
+                
             })
             document.getElementById('star1').addEventListener("click", () => {
                 let star = document.getElementById('star1')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 1
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[1]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star2').addEventListener("click", () => {
                 let star = document.getElementById('star2')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 2
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[2]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star3').addEventListener("click", () => {
                 let star = document.getElementById('star3')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 3
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[3]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star4').addEventListener("click", () => {
                 let star = document.getElementById('star4')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 4
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[4]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star5').addEventListener("click", () => {
                 let star = document.getElementById('star5')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 5
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[5]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star6').addEventListener("click", () => {
                 let star = document.getElementById('star6')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 6
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[6]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star7').addEventListener("click", () => {
                 let star = document.getElementById('star7')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 7
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[7]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star8').addEventListener("click", () => {
                 let star = document.getElementById('star8')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 8
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[8]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star9').addEventListener("click", () => {
                 let star = document.getElementById('star9')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 9
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[9]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
         }
     }
@@ -417,6 +559,7 @@ function proxpag() {
                 navbar.style.display = "flex"
                 content.style.display = "flex"
                 textonfH.value = ''
+                bv.style.display = "flex"
                 for (let c = 0; c < 10; c++) {
                     var filme = data[c]
                     let resn = document.getElementById(`res${c}`)
@@ -426,7 +569,7 @@ function proxpag() {
                     descn.innerHTML = ""
                     descn.innerHTML = `<h3>${filme.Title}</h3>`
                     descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>` 
-                    if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                    if (localStorage.getItem(`${filme.Poster}`) != null | undefined) {
                         descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
                     } else {
                         descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
@@ -442,83 +585,155 @@ function proxpag() {
             }
             document.getElementById('star0').addEventListener("click", () => {
                 let star = document.getElementById('star0')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
+                FilmeData = JSON.parse(request.response).Search[0]
                 IdFilme = 0
-                favoritar()
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
+                
             })
             document.getElementById('star1').addEventListener("click", () => {
                 let star = document.getElementById('star1')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 1
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[1]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star2').addEventListener("click", () => {
                 let star = document.getElementById('star2')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 2
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[2]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star3').addEventListener("click", () => {
                 let star = document.getElementById('star3')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 3
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[3]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star4').addEventListener("click", () => {
                 let star = document.getElementById('star4')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 4
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[4]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star5').addEventListener("click", () => {
                 let star = document.getElementById('star5')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 5
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[5]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star6').addEventListener("click", () => {
                 let star = document.getElementById('star6')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 6
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[6]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star7').addEventListener("click", () => {
                 let star = document.getElementById('star7')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 7
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[7]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star8').addEventListener("click", () => {
                 let star = document.getElementById('star8')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 8
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[8]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             document.getElementById('star9').addEventListener("click", () => {
                 let star = document.getElementById('star9')
-                star.style.color = "gold"
-                star.setAttribute('class', 'bi bi-star-fill')
-                star.style.fontSize = "3em"
-                IdFilme = 9
-                favoritar()
+                FilmeData = JSON.parse(request.response).Search[9]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
+                    star.style.color = "gold"
+                    star.setAttribute('class', 'bi bi-star-fill')
+                    star.style.fontSize = "3em"
+                    favoritar()
+                }
             })
             } else {
                 console.log(request)
@@ -566,6 +781,9 @@ function antpag () {
                     b.style.display= "flex"
                     if (p == 1) {
                         bv.style.display = "none"
+                        footer.appendChild(b)
+                    } else {
+                        bv.style.display = "flex"
                     }
                     for (let c = 0; c < 10; c++) {
                         var filme = data[c]
@@ -576,7 +794,7 @@ function antpag () {
                         descn.innerHTML = ""
                         descn.innerHTML = `<h3>${filme.Title}</h3>`
                         descn.innerHTML += `<p>Lançado no ano de ${filme.Year}</p>`
-                        if (localStorage.getItem(`${filme.Poster}`) == filme.Title) {
+                        if (localStorage.getItem(`${filme.Poster}`) != null | undefined) {
                             descn.innerHTML+= `<i class="bi bi-star-fill" id="star${c}"></i>`
                         } else {
                             descn.innerHTML += `<i class="bi bi-star" id="star${c}"></i>`
@@ -593,86 +811,158 @@ function antpag () {
                     console.log(request)
                     console.log(`ERROR ${request.status}`)
                 }
-                document.getElementById('star0').addEventListener("click", () => {
-                    let star = document.getElementById('star0')
+            document.getElementById('star0').addEventListener("click", () => {
+                let star = document.getElementById('star0')
+                FilmeData = JSON.parse(request.response).Search[0]
+                IdFilme = 0
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 0
                     favoritar()
-                })
-                document.getElementById('star1').addEventListener("click", () => {
-                    let star = document.getElementById('star1')
+                }
+                
+            })
+            document.getElementById('star1').addEventListener("click", () => {
+                let star = document.getElementById('star1')
+                FilmeData = JSON.parse(request.response).Search[1]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 1
                     favoritar()
-                })
-                document.getElementById('star2').addEventListener("click", () => {
-                    let star = document.getElementById('star2')
+                }
+            })
+            document.getElementById('star2').addEventListener("click", () => {
+                let star = document.getElementById('star2')
+                FilmeData = JSON.parse(request.response).Search[2]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 2
                     favoritar()
-                })
-                document.getElementById('star3').addEventListener("click", () => {
-                    let star = document.getElementById('star3')
+                }
+            })
+            document.getElementById('star3').addEventListener("click", () => {
+                let star = document.getElementById('star3')
+                FilmeData = JSON.parse(request.response).Search[3]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 3
                     favoritar()
-                })
-                document.getElementById('star4').addEventListener("click", () => {
-                    let star = document.getElementById('star4')
+                }
+            })
+            document.getElementById('star4').addEventListener("click", () => {
+                let star = document.getElementById('star4')
+                FilmeData = JSON.parse(request.response).Search[4]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 4
                     favoritar()
-                })
-                document.getElementById('star5').addEventListener("click", () => {
-                    let star = document.getElementById('star5')
+                }
+            })
+            document.getElementById('star5').addEventListener("click", () => {
+                let star = document.getElementById('star5')
+                FilmeData = JSON.parse(request.response).Search[5]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 5
                     favoritar()
-                })
-                document.getElementById('star6').addEventListener("click", () => {
-                    let star = document.getElementById('star6')
+                }
+            })
+            document.getElementById('star6').addEventListener("click", () => {
+                let star = document.getElementById('star6')
+                FilmeData = JSON.parse(request.response).Search[6]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 6
                     favoritar()
-                })
-                document.getElementById('star7').addEventListener("click", () => {
-                    let star = document.getElementById('star7')
+                }
+            })
+            document.getElementById('star7').addEventListener("click", () => {
+                let star = document.getElementById('star7')
+                FilmeData = JSON.parse(request.response).Search[7]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 7
                     favoritar()
-                })
-                document.getElementById('star8').addEventListener("click", () => {
-                    let star = document.getElementById('star8')
+                }
+            })
+            document.getElementById('star8').addEventListener("click", () => {
+                let star = document.getElementById('star8')
+                FilmeData = JSON.parse(request.response).Search[8]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 8
                     favoritar()
-                })
-                document.getElementById('star9').addEventListener("click", () => {
-                    let star = document.getElementById('star9')
+                }
+            })
+            document.getElementById('star9').addEventListener("click", () => {
+                let star = document.getElementById('star9')
+                FilmeData = JSON.parse(request.response).Search[9]
+                if (star.getAttribute('class') == "bi bi-star-fill") {
+                    star.style.color = "white"
+                    star.setAttribute('class', "bi bi-star")
+                    star.style.fontSize = "3em"
+                    desfavoritar()
+                } else {
                     star.style.color = "gold"
                     star.setAttribute('class', 'bi bi-star-fill')
                     star.style.fontSize = "3em"
-                    IdFilme = 9
                     favoritar()
-                })
+                }
+            })
             }
         }
     }
@@ -691,15 +981,11 @@ function countdown() {
 }
 
 function favoritar() {   
-    FavoritoC = localStorage.length / 4  
-    let posterLocal = document.getElementById(`poster${IdFilme}`).getAttribute('src')
-    let tituloLocal = document.getElementById(`desc${IdFilme}`).getElementsByTagName('h3')[0].innerText
-    let anoLocal = document.getElementById(`desc${IdFilme}`).getElementsByTagName('p')[0].innerText
-    console.log(tituloLocal)
-    localStorage.setItem(`${FavoritoC}Poster`, posterLocal)
-    localStorage.setItem(`${FavoritoC}Title`, tituloLocal)
-    localStorage.setItem(`${FavoritoC}Ano`, anoLocal)
-    localStorage.setItem(`${posterLocal}`, tituloLocal)
+    FavoritoC = localStorage.length / 2
+    let filmeImdbId = FilmeData.imdbID
+    console.log(filmeImdbId)
+    localStorage.setItem(FavoritoC, `${JSON.stringify(FilmeData)}`)
+    localStorage.setItem(`${filmeImdbId}`, FavoritoC)
 }
 
 var pagCFav = 0
@@ -707,64 +993,239 @@ function pagfavoritos() {
     if (localStorage.length != 0 ) {
         window.scrollTo(0,0)
         for (let c = 0 ; c < 10; c++) {
-            let filmePoster = localStorage.getItem(`${c + pagCFav}Poster`)
-            let filmeTitle = localStorage.getItem(`${c + pagCFav}Title`)
-            let filmeAno = localStorage.getItem(`${c + pagCFav}Ano`)
+            let dados = JSON.parse(localStorage.getItem(c + pagCFav))
             let resn = document.getElementById(`res${c}`)
             let descn = document.getElementById(`desc${c}`)
-            resn.innerHTML = ""
-            descn.innerHTML = ""
-            if (filmePoster != null) {
-                resn.innerHTML += `<img src="${filmePoster}" id = "poster${c}" alt="Capa">`
-                descn.innerHTML = `<h3>${filmeTitle}</h3>`
-                descn.innerHTML += `<p>Lançado no ano de ${filmeAno}</p>`
+            if (dados != null | undefined){
+                resn.innerHTML = `<img src="${dados.Poster}" id = "poster${c}" alt="Capa">`
+                descn.innerHTML = `<h3>${dados.Title}</h3>`
+                descn.innerHTML += `<p>Lançado no ano de ${dados.Year}</p>`
                 descn.innerHTML += `<i class="bi bi-star-fill" id="star${c}"></i>`
-                resn.style.display = "flex"
-                descn.style.display = "flex"
-                
             } else {
-                resn.style.display = "none" 
+                resn.style.display = "none"
                 descn.style.display = "none"
             }
         }
         center.style.display = "none"
         navbar.style.display = "flex"
         footer.style.display = "flex"
-        console.log (document.getElementById('Next'))
         if (document.getElementById ('Next') != null) {
             footer.removeChild (b)    
         }
         
-        if (localStorage.length / 4 > 9) {
+        if (localStorage.length / 2 > 9) {
             footer.appendChild(bF)
         }
-        
+        if (document.getElementById('Prev') != null) {
+            footer.removeChild(bv)
+        }
+        if (document.getElementById('Next') != null) {
+            footer.removeChild(b)
+        }
         if (pagCFav > 1) {
             footer.appendChild(bvF)
-            if (document.getElementById('Prev') != null) {
-                footer.removeChild(bv)
-            }
-            if (localStorage.length / 4 < 9 + pagCFav) {
+            if (localStorage.length / 2 < 9 + pagCFav) {
                 footer.removeChild(bF)   
             }
         }
         if (pagCFav == 0 && document.getElementById('PrevFav') != null) {
             footer.removeChild(bvF)
         }
-        
+        document.getElementById('star0').addEventListener("click", () => {
+            let star = document.getElementById('star0')
+            FilmeData = JSON.parse(localStorage.getItem(0 + pagCFav))
+            IdFilme = 0 + FavoritoC
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+            
+        })
+        document.getElementById('star1').addEventListener("click", () => {
+            let star = document.getElementById('star1')
+            FilmeData = JSON.parse(localStorage.getItem(1 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star2').addEventListener("click", () => {
+            let star = document.getElementById('star2')
+            FilmeData = JSON.parse(localStorage.getItem(2 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star3').addEventListener("click", () => {
+            let star = document.getElementById('star3')
+            FilmeData = JSON.parse(localStorage.getItem(3 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star4').addEventListener("click", () => {
+            let star = document.getElementById('star4')
+            FilmeData = JSON.parse(localStorage.getItem(4 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star5').addEventListener("click", () => {
+            let star = document.getElementById('star5')
+            FilmeData = JSON.parse(localStorage.getItem(5 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star6').addEventListener("click", () => {
+            let star = document.getElementById('star6')
+            FilmeData = JSON.parse(localStorage.getItem(6 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star7').addEventListener("click", () => {
+            let star = document.getElementById('star7')
+            FilmeData = JSON.parse(localStorage.getItem(7 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star8').addEventListener("click", () => {
+            let star = document.getElementById('star8')
+            FilmeData = JSON.parse(localStorage.getItem(8 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
+        document.getElementById('star9').addEventListener("click", () => {
+            let star = document.getElementById('star9')
+            FilmeData = JSON.parse(localStorage.getItem(0 + pagCFav))
+            if (star.getAttribute('class') == "bi bi-star-fill") {
+                star.style.color = "white"
+                star.setAttribute('class', "bi bi-star")
+                star.style.fontSize = "3em"
+                desfavoritar()
+            } else {
+                star.style.color = "gold"
+                star.setAttribute('class', 'bi bi-star-fill')
+                star.style.fontSize = "3em"
+                favoritar()
+            }
+        })
     } else {
-        alert('Você ainda não possui favoritos')
+        window.alert('Você ainda não possui favoritos')
     }
 }
 
 function proxPagFav() {
-    if (localStorage.length / 4 > 9) {
+    if (localStorage.length / 2 > 9) {
         pagCFav += 10
         pagfavoritos()
     }
 }
 
 function antPagFav () {
-    pagCFav -= 10
-    pagfavoritos()
+    if (pagCFav >= 10) {
+        pagCFav -= 10
+        pagfavoritos()    
+    }
+    
+}
+
+function desfavoritar () {
+    console.log(FilmeData)
+    let filmeImdbId = FilmeData.imdbID
+    let localfilme = localStorage.getItem(`${filmeImdbId}`)
+    console.log (parseInt(localfilme))
+    localStorage.removeItem(`${localfilme}`)    
+    localStorage.removeItem(`${filmeImdbId}`)
+    console.log ((localStorage.length / 2) - 1)
+    if (localfilme <= localStorage.length / 2 - 1) {
+        for (let r = parseInt(localfilme) + 1; r <= localStorage.length / 2; r++) {
+            console.log (r)
+            let change = localStorage.getItem(r) 
+            let changeId = JSON.parse(change).imdbID    
+            console.log(change)   
+            localStorage.setItem(`${r -1}`, `${change}`)
+            localStorage.setItem(`${changeId}`, `${r - 1}`)
+            localStorage.removeItem(`${r}`)
+        }
+    }
+    if (localStorage.length == 0) {
+        location.reload()
+    } else {
+        pagfavoritos()    
+    }
+    
 }
