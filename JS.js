@@ -1001,6 +1001,8 @@ function pagfavoritos() {
                 descn.innerHTML = `<h3>${dados.Title}</h3>`
                 descn.innerHTML += `<p>Lançado no ano de ${dados.Year}</p>`
                 descn.innerHTML += `<i class="bi bi-star-fill" id="star${c}"></i>`
+                descn.style.display = "flex"
+                resn.style.display = "flex"
             } else {
                 resn.style.display = "none"
                 descn.style.display = "none"
@@ -1013,8 +1015,10 @@ function pagfavoritos() {
             footer.removeChild (b)    
         }
         
-        if (localStorage.length / 2 > 9) {
+        if (localStorage.length / 2 > 10) {
             footer.appendChild(bF)
+        } else if (document.getElementById(bF) != null) {   
+            footer.removeChild(bF)
         }
         if (document.getElementById('Prev') != null) {
             footer.removeChild(bv)
@@ -1023,8 +1027,10 @@ function pagfavoritos() {
             footer.removeChild(b)
         }
         if (pagCFav > 1) {
+            footer.removeChild(bF)
             footer.appendChild(bvF)
-            if (localStorage.length / 2 < 9 + pagCFav) {
+            footer.appendChild(bF)
+            if (localStorage.length / 2 <= 10 + pagCFav) {
                 footer.removeChild(bF)   
             }
         }
@@ -1189,7 +1195,7 @@ function pagfavoritos() {
 }
 
 function proxPagFav() {
-    if (localStorage.length / 2 > 9) {
+    if (localStorage.length / 2 > 10) {
         pagCFav += 10
         pagfavoritos()
     }
