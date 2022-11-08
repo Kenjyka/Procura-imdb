@@ -18,7 +18,7 @@
     width: 100%;
 }
 #procura-box {
-    width: 500px;
+    width: 35rem;
 }
 #primeira-tela {
     display: flex;
@@ -126,4 +126,60 @@ input[type="search"]::-webkit-search-cancel-button {
     color: gold;
     font-size: 3em;
     cursor: pointer;
+}
+
+#clear {
+    height: 5em;
+    width: 6em;
+    display: flex;
+}
+#clearplace {
+    display: none;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 0;
+}
+#clear {
+    margin-top: 6em;
+    margin-right: 1em;
+    height: 4em;
+    width: 5em;
+    margin-bottom: -10em;
+    font-size: 1em;
+}
+
+#pesquisa {
+    flex-wrap: nowrap;
+    width: 3em;
+}
+
+#pesquisa-item-box {
+    width: 25em;
+    margin-left: 40em;
+}
+@media(max-width: 760px) {
+    #clearplace{
+        justify-content: center;
+
+    }
+
+    #clear {
+        margin-bottom: -100px;
+    }
+
+    #procura-box{
+        width: 20em;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    #procura-textoH{
+        width: 15em;
+    }
+
+    #pesquisa-item-box {
+        margin: 0;
+    }
 }

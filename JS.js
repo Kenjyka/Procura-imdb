@@ -2,9 +2,10 @@
     as variáveis que possuem "H" no nome são referentes a navbar ou o "header" da página
 */
 
-/* Setando valores de URL e Página(p) para futuro uso */
+var pagCFav = 0
 var url = 'http://www.omdbapi.com/?i=tt3896198&apikey=1e6a7982' 
 var p = 1
+var contador = 10
 
 /* selecionando as Tags do HTML */
 var button = document.getElementById('procura')
@@ -16,6 +17,7 @@ var textonfH = document.getElementById('procura-textoH')
 var primeira_tela = document.getElementById('primeira-tela')
 var favoritos = document.getElementsByClassName('bi-star')
 var target = document.getElementById('desc0')
+var placeclear = document.getElementById('clearplace')
 var FavoritoC = 0
 var IdFilme = 0
 var FilmeData = undefined
@@ -54,6 +56,16 @@ bvF.setAttribute('class', 'btn btn-dark btn-sm')
 bvF.addEventListener('click', (n)=>{
     n.stopPropagation
     antPagFav()
+})
+
+/* Botão de clear localstorage */
+var bClear = document.createElement('button')
+bClear.innerText = "Limpar Favoritos"
+bClear.setAttribute('id', 'clear')
+bClear.setAttribute('class', 'btn btn-light btn-sm')
+bClear.addEventListener('click', (n) => {
+    n.stopPropagation
+    clearlocalstorage()
 })
 
 /* Event listeners */
@@ -968,7 +980,7 @@ function antpag () {
     }
 }
 
-var contador = 10
+
 function countdown() {
     if (contador == 0) {
         location.reload()
@@ -988,10 +1000,12 @@ function favoritar() {
     localStorage.setItem(`${filmeImdbId}`, FavoritoC)
 }
 
-var pagCFav = 0
+
 function pagfavoritos() {
     if (localStorage.length != 0 ) {
         window.scrollTo(0,0)
+        placeclear.style.display = 'flex'
+        placeclear.appendChild(bClear)
         for (let c = 0 ; c < 10; c++) {
             let dados = JSON.parse(localStorage.getItem(c + pagCFav))
             let resn = document.getElementById(`res${c}`)
@@ -1234,4 +1248,12 @@ function desfavoritar () {
         pagfavoritos()    
     }
     
+}
+
+function clearlocalstorage() {
+    if (confirm('ESSA AÇÃO RETIRARÁ TODOS OS ITENS DOS FAVORITOS')) {
+        localStorage.clear()
+        pagCFav = 0
+        location.reload()
+    }
 }

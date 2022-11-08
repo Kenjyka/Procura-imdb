@@ -35,10 +35,12 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="row navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item row" id="pesquisa-item-box">
+                <input class="form-control me-2" placeholder="Spider-man..." id="procura-textoH">
+                <button class="btn btn-outline-light" type="button" id="pesquisa" onclick="pesquisarH()"><i class="bi bi-search dark"></i></button>
+              </li>
             </ul>
-              <input class="form-control me-2" placeholder="Spider-man..." id="procura-textoH">
-              <button class="btn btn-outline-light" type="button" id="pesquisa" onclick="pesquisarH()"><i class="bi bi-search dark"></i></button>
           </div>
         </div>
   </nav>
@@ -52,6 +54,8 @@
             </div>
       </div>
     </div>
+  </div>
+  <div class="col-12 column" id="clearplace">
   </div>
   <div class="container" id="imagens">
     <div class="col-12" id="featured-images">
