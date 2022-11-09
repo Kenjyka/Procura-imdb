@@ -1,7 +1,3 @@
-/* legenda
-    as variáveis que possuem "H" no nome são referentes a navbar ou o "header" da página
-*/
-
 var pagCFav = 0
 var url = 'http://www.omdbapi.com/?i=tt3896198&apikey=1e6a7982' 
 var p = 1
@@ -82,7 +78,6 @@ textonfH.addEventListener ('keydown', (evento)=> {
     }
 })
 
-/* Função de pesquisa */
 function pesquisar() {
     /* Resetando os valores da url e p para o inicial garantindo que a página vá para a primeira do filme selecionado */
     url = 'http://www.omdbapi.com/?i=tt3896198&apikey=1e6a7982'
